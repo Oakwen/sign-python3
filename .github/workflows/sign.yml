@@ -7,7 +7,7 @@ on:
   #   branches:
   #     - master
   schedule:
-    - cron: "15 0 * * *"
+    - cron: "10 0 * * *"
 jobs:
   build:
     runs-on: ubuntu-20.04
@@ -26,8 +26,11 @@ jobs:
           MSG_URL: "${{ secrets.MSG_URL }}"
           V2EX_COOKIE: "${{ secrets.V2EX_COOKIE }}"
           SMZDM_COOKIE: "${{secrets.SMZDM_COOKIE}}"
+          WPS_SID: "${{WPS_SID}}"
+          WPS_INVITEID: "${{WPS_INVITEID}}"
         run: |
           pip install requests retry beautifulsoup4
 
           python3 v2ex-sign.py
           python3 smzdm-sign.py
+          python3 wps.py
