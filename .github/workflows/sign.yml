@@ -1,0 +1,33 @@
+name: 签到
+
+on:
+  watch:
+    types: started
+  # push:
+  #   branches:
+  #     - master
+  schedule:
+    - cron: "15 0 * * *"
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+
+    steps:
+      - name: Checkout codes
+        uses: actions/checkout@v2
+
+      - name: 初始化Python3
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+
+      - name: 开始签到
+        env: 
+          MSG_URL: "${{ secrets.MSG_URL }}"
+          V2EX_COOKIE: "${{ secrets.V2EX_COOKIE }}"
+          SMZDM_COOKIE: "${{secrets.SMZDM_COOKIE}}"
+        run: |
+          pip install requests retry beautifulsoup4
+
+          python3 v2ex-sign.py
+          python3 smzdm-sign.py
