@@ -138,11 +138,13 @@ def wps_clockin(sid: str) -> None:
 if __name__ == '__main__':
     sid = os.environ['WPS_SID']
     userid = os.environ['WPS_INVITEID']
+    msg_url = os.environ['MSG_URL']
     now = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(time.time()))
 
     print("--------------------------" + now + "----------------------------")
     print("sid=" + sid)
-    print("userid="+userid)
+    print("userid=" + userid)
+    print("MSG_URL="+msg_url)
 
     wps_clockin(sid)
     wps_invite([], userid)
