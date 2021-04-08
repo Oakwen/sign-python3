@@ -26,8 +26,8 @@ jobs:
           MSG_URL: "${{ secrets.MSG_URL }}"
           V2EX_COOKIE: "${{ secrets.V2EX_COOKIE }}"
           SMZDM_COOKIE: "${{secrets.SMZDM_COOKIE}}"
-          WPS_SID: "${{WPS_SID}}"
-          WPS_INVITEID: "${{WPS_INVITEID}}"
+          WPS_SID: "${{secrets.WPS_SID}}"
+          WPS_INVITEID: "${{secrets.WPS_INVITEID}}"
         run: |
           pip install requests retry beautifulsoup4
 
