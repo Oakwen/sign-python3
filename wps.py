@@ -141,6 +141,8 @@ if __name__ == '__main__':
     now = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(time.time()))
 
     print("--------------------------" + now + "----------------------------")
+    print("sid=" + sid)
+    print("userid="+userid)
 
     wps_clockin(sid)
     wps_invite([], userid)
