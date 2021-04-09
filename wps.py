@@ -143,5 +143,5 @@ if __name__ == '__main__':
 
     print("--------------------------" + now + "----------------------------")
 
-    wps_clockin(sid)
+    # wps_clockin(sid)
     wps_invite([], userid)
