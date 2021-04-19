@@ -5,6 +5,8 @@ import time
 import json
 import os
 
+MSG_URL = os.environ["MSG_URL"]
+
 # 解决https访问警告
 # from requests.packages.urllib3.exceptions import InsecureRequestWarning,InsecurePlatformWarning
 # requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
@@ -39,6 +41,7 @@ def wps_invite(sid: list, invite_userid: int) -> None:
     sid = default_sid+sid
     invite_url = 'http://zt.wps.cn/2018/clock_in/api/invite'
     s = requests.session()
+    count = 0
     for index, i in enumerate(sid):
         headers = {
             'sid': i
@@ -47,10 +50,16 @@ def wps_invite(sid: list, invite_userid: int) -> None:
                    'invite_userid': invite_userid})
         time.sleep(2)
         print("ID={}, 状态码: {}, 请求信息{}".format(
-            str(index+1).zfill(2), r.status_code, r.text))
-
+            str(index + 1).zfill(2), r.status_code, r.text))
+        if r.text.find('OK') != -1:
+            count += 1
+    msg = {'WPS邀请(づ ●─● )づ': '\n' + (time.strftime("%Y-%m-%d %H:%M:%S",
+                                                   time.localtime())) + '\n今天已经邀请了'+str(count)+'人啦\n'}
+    requests.get(MSG_URL, msg)
 
 # wps签到
+
+
 def wps_clockin(sid: str) -> None:
     getquestion_url = 'http://zt.wps.cn/2018/clock_in/api/get_question?member=wps'
     s = requests.session()
