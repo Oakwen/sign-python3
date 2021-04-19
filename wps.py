@@ -51,7 +51,7 @@ def wps_invite(sid: list, invite_userid: int) -> None:
         time.sleep(2)
         print("ID={}, 状态码: {}, 请求信息{}".format(
             str(index + 1).zfill(2), r.status_code, r.text))
-        if r.text.find('OK') != -1:
+        if r.text.find('ok') != -1:
             count += 1
     msg = {'WPS邀请(づ ●─● )づ': '\n' + (time.strftime("%Y-%m-%d %H:%M:%S",
                                                    time.localtime())) + '\n今天已经邀请了'+str(count)+'人啦\n'}
