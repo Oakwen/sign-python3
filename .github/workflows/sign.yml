@@ -34,4 +34,4 @@ jobs:
 
           python3 v2ex-sign.py
           python3 smzdm-sign.py
-          python3 wps.py
+      #    python3 wps.py
