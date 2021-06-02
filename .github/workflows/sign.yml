@@ -27,11 +27,8 @@ jobs:
           MSG_URL: "${{ secrets.MSG_URL }}"
           V2EX_COOKIE: "${{ secrets.V2EX_COOKIE }}"
           SMZDM_COOKIE: "${{secrets.SMZDM_COOKIE}}"
-          WPS_SID: "${{secrets.WPS_SID}}"
-          WPS_INVITEID: "${{secrets.WPS_INVITEID}}"
         run: |
           pip install requests retry beautifulsoup4
 
           python3 v2ex-sign.py
           python3 smzdm-sign.py
-   #       python3 wps.py
