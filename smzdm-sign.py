@@ -59,7 +59,7 @@ if __name__ == '__main__':
     sb.load_cookie_str(cookies)
     res = sb.checkin()
     print(res)
-    if res['error_code'] == 0:
+    if int(res['error_code']) == 0:
         soup = BeautifulSoup(res['data']['slogan'], 'html.parser')
         success_msg = ''
         for j in soup.contents[0].contents:
