@@ -6,8 +6,8 @@ on:
   # push:
   #   branches:
   #     - master
-#   schedule:
-#     - cron: 10 0 * * *
+  schedule:
+    - cron: 10 0 * * *
 
 jobs:
   build:
@@ -31,4 +31,4 @@ jobs:
           pip install requests retry beautifulsoup4
 
           python3 v2ex-sign.py
-          python3 smzdm-sign.py
+        #  python3 smzdm-sign.py
