@@ -52,20 +52,20 @@ def daily():
                     balance = re.search(
                         r'\d+?\s的每日登录奖励\s\d+\s铜币', res_balance.text)
                     # print(balance)
-                    msg = {'v2ex签到(づ ●─● )づ': '\n' + (
+                    msg = {'v2ex签到(づ ●─● )づ': 'v2ex签到(づ ●─● )づ' + '\n' + (
                         time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())) + '\n签到成功\n' + balance.group(
                         0)}
                     requests.get(MSG_URL, msg)
                     return True
                 else:
                     # print('balance失败')
-                    msg = {'v2ex签到(づ ●─● )づ': '\n' + (
+                    msg = {'v2ex签到(づ ●─● )づ': 'v2ex签到(づ ●─● )づ' + '\n' + (
                         time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())) + '\n签到成功，获取金币数失败\n'}
                     requests.get(MSG_URL, msg)
                     return True
             else:
                 # print('签到失败')
-                msg = {'v2ex签到(づ ●─● )づ': '\n' + (
+                msg = {'v2ex签到(づ ●─● )づ': 'v2ex签到(づ ●─● )づ' + '\n' + (
                     time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())) + '\n签到失败\n'}
                 requests.get(MSG_URL, msg)
                 return False
